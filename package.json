@@ -1,0 +1,18 @@
+{
+  "name": "imperfect-panda-bot",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "author": "issadarkthing",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon ./dist/index.js",
+    "watch": "tsc -w"
+  },
+  "dependencies": {
+    "@jiman24/commandment": "^0.3.8",
+    "discord.js": "^13.3.1",
+    "dotenv": "^10.0.0",
+    "enmap": "^5.8.7",
+    "random-js": "^2.1.0"
+  }
+}
