@@ -10,10 +10,13 @@
   },
   "dependencies": {
     "@jiman24/commandment": "^0.3.8",
+    "common-tags": "^1.8.0",
     "discord.js": "^13.3.1",
     "dotenv": "^10.0.0",
     "enmap": "^5.8.7",
-    "random-js": "^2.1.0",
-    "short-uuid": "^4.2.0"
+    "random-js": "^2.1.0"
+  },
+  "devDependencies": {
+    "@types/common-tags": "^1.8.1"
   }
 }

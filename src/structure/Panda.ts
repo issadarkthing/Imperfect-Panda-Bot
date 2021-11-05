@@ -1,6 +1,6 @@
 import { MessageEmbed } from "discord.js";
-import shortUUID from "short-uuid";
-import { inlineCode } from "../utils";
+import { client } from "..";
+import { toList } from "../utils";
 
 interface BaseStats {
   attack: number;
@@ -10,7 +10,7 @@ interface BaseStats {
   speed: number;
 }
 
-type BaseStatsKey = keyof BaseStats;
+export type BaseStatsKey = keyof BaseStats;
 
 interface Attribute {
   name: string;
@@ -19,7 +19,7 @@ interface Attribute {
 }
 
 export class Panda implements BaseStats {
-  id = shortUUID.generate();
+  id = client.players.autonum;
   avatarUrl: string;
   nickname?: string;
   hp = 100;
@@ -44,17 +44,33 @@ export class Panda implements BaseStats {
     return this.nickname || `Panda #${this.id}`;
   }
 
+  addAttribute(attribute: Attribute) {
+    this[attribute.stat] += attribute.value;
+    this.attributes.push(attribute);
+  }
+
   show() {
+
+    const attributes = toList(this.attributes
+      .map(x => `${x.name}: +${x.value} ${x.stat}`));
+
+    const description = `
+    **Stats**
+    Attack: ${this.attack}
+    Magic Attack: ${this.magicAttack}
+    Defense: ${this.defense}
+    Magic Defense: ${this.magicDefense}
+    Speed: ${this.speed}
+
+    **Attributes**
+    ${attributes}
+    `
 
     const embed = new MessageEmbed()
       .setColor("RANDOM")
       .setTitle(this.name)
       .setImage(this.avatarUrl)
-      .addField("Attack", inlineCode(this.attack), true)
-      .addField("Magic Attack", inlineCode(this.magicAttack), true)
-      .addField("Defense", inlineCode(this.defense), true)
-      .addField("Magic Defense", inlineCode(this.magicDefense), true)
-      .addField("Speed", inlineCode(this.speed), true)
+      .setDescription(description)
 
     return embed;
   }
