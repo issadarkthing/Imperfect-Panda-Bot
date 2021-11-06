@@ -40,6 +40,10 @@ export class Panda implements BaseStats {
     return panda;
   }
 
+  static cleanID(id: string) {
+    return id.replace(/^#/, "");
+  }
+
   get name() {
     return this.nickname || `Panda #${this.id}`;
   }

@@ -1,22 +1,28 @@
 import { Command } from "@jiman24/commandment";
 import { Message } from "discord.js";
-import { validateIndex, validateNumber } from "../utils";
+import { Panda } from "../structure/Panda";
 import { Player } from "../structure/Player";
 
 
 export default class extends Command {
   name = "stats";
-  aliases = ["st"];
+  aliases = ["st", "stat"];
 
   async exec(msg: Message, args: string[]) {
 
     const player = new Player(msg.author);
-    const index = parseInt(args[0]) - 1;
+    const [arg1] = args;
+    
+    if (!arg1) {
+      throw new Error("you need to provide panda id");
+    }
 
-    validateNumber(index);
-    validateIndex(index, player.pandas);
+    const id = Panda.cleanID(arg1);
+    const panda = player.pandas.find(panda => panda.id === id);
 
-    const panda = player.pandas[index];
+    if (!panda) {
+      throw new Error("cannot find panda");
+    }
 
     msg.channel.send({ embeds: [panda.show()] });
 
