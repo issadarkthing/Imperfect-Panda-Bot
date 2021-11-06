@@ -16,6 +16,10 @@ export default class extends Command {
 
     if (!mentionedUser) {
       throw new Error("you need to mention a user");
+
+    } else if (mentionedUser.id === msg.author.id) {
+      throw new Error("you cannot battle yourself");
+
     }
 
     let battleRequestResult = false;
