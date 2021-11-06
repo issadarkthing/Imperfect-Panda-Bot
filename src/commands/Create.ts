@@ -1,6 +1,7 @@
 import { Command } from "@jiman24/commandment";
 import { oneLine } from "common-tags";
 import { Message } from "discord.js";
+import { client } from "..";
 import { BaseStatsKey, Panda } from "../structure/Panda";
 import { Player } from "../structure/Player";
 import { Prompt } from "../structure/Prompt";
@@ -25,7 +26,7 @@ export default class extends Command {
       this.prompt = new Prompt(msg);
 
       const avatar = await this.getAvatar();
-      const panda = new Panda(avatar.url);
+      const panda = new Panda(client.players.autonum, avatar.url);
 
       const addAttribute = await this.prompt
         .ask("Do you want to add attribute? [y/n]");

@@ -1,5 +1,4 @@
 import { MessageEmbed } from "discord.js";
-import { client } from "..";
 import { toList } from "../utils";
 
 interface BaseStats {
@@ -19,7 +18,7 @@ interface Attribute {
 }
 
 export class Panda implements BaseStats {
-  id = client.players.autonum;
+  readonly id: string;
   avatarUrl: string;
   nickname?: string;
   hp = 100;
@@ -30,12 +29,13 @@ export class Panda implements BaseStats {
   speed = 5;
   attributes: Attribute[] = [];
 
-  constructor(avatarUrl: string) {
+  constructor(id: string | number, avatarUrl: string) {
+    this.id = id.toString();
     this.avatarUrl = avatarUrl;
   }
 
   static fromObject(x: Panda) {
-    const panda = new Panda(x.avatarUrl);
+    const panda = new Panda(x.id, x.avatarUrl);
     Object.assign(panda, x);
     return panda;
   }
