@@ -57,6 +57,9 @@ export class Battle {
 
   private handleBattle(p1Action: BaseStatsKey, p2Action: BaseStatsKey) {
 
+    const p1Lower = p1Action.toLowerCase();
+    const p2Lower = p2Action.toLowerCase();
+
     if (p1Action === "attack" && p2Action === "attack") {
       this.panda1.hp -= this.panda2.attack;
       this.panda2.hp -= this.panda1.attack;
@@ -65,16 +68,16 @@ export class Battle {
       this.panda1.hp -= this.panda2.magicAttack;
       this.panda2.hp -= this.panda1.magicAttack;
 
-    } else if (p1Action.includes("attack") && p2Action === "defense") {
+    } else if (p1Lower.includes("attack") && p2Action === "defense") {
       this.panda1.hp -= this.panda2.defense;
 
-    } else if (p2Action.includes("attack") && p1Action === "defense") {
+    } else if (p2Lower.includes("attack") && p1Action === "defense") {
       this.panda2.hp -= this.panda1.defense;
 
-    } else if (p1Action.includes("attack") && p2Action === "magicDefense") {
+    } else if (p1Lower.includes("attack") && p2Action === "magicDefense") {
       this.panda1.hp -= this.panda2.magicDefense;
 
-    } else if (p2Action.includes("attack") && p1Action === "magicDefense") {
+    } else if (p2Lower.includes("attack") && p1Action === "magicDefense") {
       this.panda2.hp -= this.panda1.magicDefense;
 
     }
