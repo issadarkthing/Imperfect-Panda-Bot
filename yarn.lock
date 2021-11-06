@@ -45,6 +45,13 @@
     discord.js "^13.1.0"
     table-layout "^3.0.0"
 
+"@jiman24/discord.js-button@^0.0.8":
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/@jiman24/discord.js-button/-/discord.js-button-0.0.8.tgz#8256fae3e0951d2dc7896b94018f21aacdbfad16"
+  integrity sha512-+deVN5mAtuceZ5sxg8TbP8SZoIAIZkRWsUyAyJoq4h9T07EIDuzxsus4vIYHqChl+pfbPS/0dvnFvr3YzPgZ6w==
+  dependencies:
+    discord.js "^13.3.0"
+
 "@sapphire/async-queue@^1.1.8":
   version "1.1.8"
   resolved "https://registry.yarnpkg.com/@sapphire/async-queue/-/async-queue-1.1.8.tgz#dac698654a17fb0e202fa3ff0c2c176bbdc08935"
@@ -310,7 +317,7 @@ discord-api-types@^0.24.0:
   resolved "https://registry.yarnpkg.com/discord-api-types/-/discord-api-types-0.24.0.tgz#9e429b8a1ddb4147134dfb3109093422de7ec549"
   integrity sha512-X0uA2a92cRjowUEXpLZIHWl4jiX1NsUpDhcEOpa1/hpO1vkaokgZ8kkPtPih9hHth5UVQ3mHBu/PpB4qjyfJ4A==
 
-discord.js@^13.1.0, discord.js@^13.3.1:
+discord.js@^13.1.0, discord.js@^13.3.0, discord.js@^13.3.1:
   version "13.3.1"
   resolved "https://registry.yarnpkg.com/discord.js/-/discord.js-13.3.1.tgz#94fe05bc3ec0a3e4761e4f312a2a418c29721ab6"
   integrity sha512-zn4G8tL5+tMV00+0aSsVYNYcIfMSdT2g0nudKny+Ikd+XKv7m6bqI7n3Vji0GIRqXDr5ArPaw+iYFM2I1Iw3vg==

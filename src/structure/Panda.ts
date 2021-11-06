@@ -7,6 +7,7 @@ interface BaseStats {
   defense: number;
   magicDefense: number;
   speed: number;
+  hp: number;
 }
 
 export type BaseStatsKey = keyof BaseStats;
@@ -15,6 +16,18 @@ interface Attribute {
   name: string;
   value: number;
   stat: BaseStatsKey;
+}
+
+export function stringify(stat: BaseStatsKey): string {
+  switch (stat) {
+    case "defense":
+    case "attack":
+    case "speed":
+    case "hp":
+      return stat;
+    case "magicDefense": return "magic defense";
+    case "magicAttack": return "magic attack";
+  }
 }
 
 export class Panda implements BaseStats {
@@ -71,6 +84,7 @@ export class Panda implements BaseStats {
     Defense: ${this.defense}
     Magic Defense: ${this.magicDefense}
     Speed: ${this.speed}
+    HP: ${this.hp}
 
     **Attributes**
     ${attributes}

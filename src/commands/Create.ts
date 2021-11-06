@@ -16,7 +16,8 @@ export default class extends Command {
     .set("magic attack", "magicAttack")
     .set("defense", "defense")
     .set("magic defense", "magicDefense")
-    .set("speed", "speed");
+    .set("speed", "speed")
+    .set("hp", "hp");
   prompt!: Prompt;
 
   async exec(msg: Message) {
