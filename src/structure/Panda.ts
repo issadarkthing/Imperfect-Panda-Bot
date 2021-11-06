@@ -27,6 +27,7 @@ export class Panda implements BaseStats {
   defense = 5;
   magicDefense = 5;
   speed = 5;
+  active = false;
   attributes: Attribute[] = [];
 
   constructor(id: string | number, avatarUrl: string) {
@@ -58,7 +59,12 @@ export class Panda implements BaseStats {
     const attributes = toList(this.attributes
       .map(x => `${x.name}: +${x.value} ${x.stat}`));
 
+    const status = this.active ? "active" : "inactive";
+
     const description = `
+    **Status**
+    ${status}
+
     **Stats**
     Attack: ${this.attack}
     Magic Attack: ${this.magicAttack}

@@ -25,6 +25,10 @@ export class Player {
     return this.user.id;
   }
 
+  get activePanda() {
+    return this.pandas.find(x => x.active);
+  }
+
   getPanda(id: string) {
     const cleanID = Panda.cleanID(id);
     return this.pandas.find(x => x.id === cleanID || x.nickname === id);
