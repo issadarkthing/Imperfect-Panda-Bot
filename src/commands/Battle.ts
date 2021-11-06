@@ -66,7 +66,7 @@ export default class extends Command {
     winner.coins += (amount * 2);
     winner.save();
 
-    msg.channel.send(`${bold(winner.name)} wins the battle!`);
+    msg.channel.send(`${bold(winner.name)} wins!`);
     msg.channel.send(`${bold(winner.name)} earns ${amount} coins!`);
   }
 }
