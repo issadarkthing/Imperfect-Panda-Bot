@@ -3,7 +3,8 @@ import { Message } from "discord.js";
 import { Battle } from "../structure/Battle";
 import { Player } from "../structure/Player";
 import { bold } from "../utils";
-
+import { ButtonHandler } from "@jiman24/discord.js-button";
+import { oneLine } from "common-tags";
 
 
 export default class extends Command {
@@ -15,6 +16,24 @@ export default class extends Command {
 
     if (!mentionedUser) {
       throw new Error("you need to mention a user");
+    }
+
+    let battleRequestResult = false;
+
+    const battleRequest = new ButtonHandler(
+      msg,
+      oneLine`${mentionedUser}, ${msg.author.username} is requesting to battle
+      you. Do you accept?`,
+      mentionedUser.id,
+    );
+
+    battleRequest.addButton("accept", () => { battleRequestResult = true });
+    battleRequest.addCloseButton();
+
+    await battleRequest.run();
+
+    if (!battleRequestResult) {
+      throw new Error(`${mentionedUser.username} rejected the battle request`);
     }
 
     const player = new Player(msg.author);
