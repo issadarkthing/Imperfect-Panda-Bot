@@ -27,7 +27,7 @@ export class Player {
 
   getPanda(id: string) {
     const cleanID = Panda.cleanID(id);
-    return this.pandas.find(x => x.id === cleanID);
+    return this.pandas.find(x => x.id === cleanID || x.nickname === id);
   }
 
   save() {

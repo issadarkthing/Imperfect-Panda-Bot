@@ -18,9 +18,14 @@ export default class extends Command {
 
     const player = new Player(msg.author);
     const panda = player.getPanda(id);
+    const nicknameTaken = player.getPanda(nickname);
 
     if (!panda) {
       throw new Error("cannot find panda");
+
+    } else if (nicknameTaken) {
+      throw new Error("you already have a panda with that nickname");
+
     }
 
     const oldName = panda.name;
