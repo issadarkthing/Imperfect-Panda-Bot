@@ -17,6 +17,7 @@ export default class extends Command {
     const embed = new MessageEmbed()
       .setColor("RANDOM")
       .setTitle("Party")
+      .addField("Coins", player.coins.toString())
       .setDescription(pandas);
 
     msg.channel.send({ embeds: [embed] });
