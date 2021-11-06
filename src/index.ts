@@ -33,6 +33,10 @@ commandManager.registerCommandOnThrottleHandler((msg, cmd, timeLeft) => {
   msg.channel.send(`You cannot run ${cmd.name} command after ${time} s`);
 })
 
+commandManager.registerCommandErrorHandler((err, msg) => {
+  msg.channel.send((err as Error).message);
+})
+
 client.on("ready", () => console.log(client.user?.username, "is ready!"))
 client.on("messageCreate", msg => commandManager.handleMessage(msg));
 

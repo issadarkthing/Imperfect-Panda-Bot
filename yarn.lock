@@ -36,9 +36,9 @@
     mime-types "^2.1.12"
 
 "@jiman24/commandment@^0.3.8":
-  version "0.3.8"
-  resolved "https://registry.yarnpkg.com/@jiman24/commandment/-/commandment-0.3.8.tgz#149986380cf4f3cc504da147dd893fc78cc505b5"
-  integrity sha512-18Mk5BYdn1jjOPCaThcYf2I/BlqFy/krrjCus1jr7no4geGoSKOneihx71T9ouX37pVDzkH8Vq2O5Rx6/cUpJQ==
+  version "0.3.10"
+  resolved "https://registry.yarnpkg.com/@jiman24/commandment/-/commandment-0.3.10.tgz#d9a127da82a85b56215e20bdc61ec0cdd5b5396c"
+  integrity sha512-GtCn4ffhm8kHgqPu6hn1CbfxaOy5kM95g1Pqce4M69rxYFYfmrAoCbSVWPZ0SscTYxxb28C4qihB/L+jJkF0Wg==
   dependencies:
     chalk "^4.1.2"
     common-tags "^1.8.0"
