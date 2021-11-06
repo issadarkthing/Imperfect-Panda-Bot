@@ -11,13 +11,11 @@ export default class Remove extends Command {
   async exec(msg: Message, args: string[]) {
 
 
-    const [arg1] = args;
+    const [id] = args;
 
-    if (!arg1) {
+    if (!id) {
       throw new Error("you need to provide panda id");
     }
-
-    const id = arg1.replace(/^#/, "");
 
     const mentionedUser = msg.mentions.users.first();
 
@@ -26,7 +24,7 @@ export default class Remove extends Command {
     }
 
     const player = new Player(mentionedUser);
-    const panda = player.pandas.find(panda => panda.id === id);
+    const panda = player.getPanda(id);
 
     if (!panda) {
       throw new Error("cannot find panda");

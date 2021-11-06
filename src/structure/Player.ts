@@ -25,6 +25,11 @@ export class Player {
     return this.user.id;
   }
 
+  getPanda(id: string) {
+    const cleanID = Panda.cleanID(id);
+    return this.pandas.find(x => x.id === cleanID);
+  }
+
   save() {
     const { user, ...others } = this;
     client.players.set(this.id, others);
