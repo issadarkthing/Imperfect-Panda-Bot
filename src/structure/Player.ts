@@ -7,7 +7,7 @@ export class Player {
   name: string;
   user: User;
   pandas: Panda[] = [];
-  coins = 0;
+  coins = 100;
 
   constructor(user: User) {
     this.user = user;
