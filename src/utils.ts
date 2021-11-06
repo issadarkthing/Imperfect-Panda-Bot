@@ -42,3 +42,14 @@ export function toNList(items: string[], start = 1) {
   if (items.length < 0) return "none";
   return items.map((x, i) => `${i + start}. ${x}`).join("\n");
 }
+
+
+export function remove<T>(fn: (item: T) => boolean, arr: T[], count = 1): T[] {
+  const index = arr.findIndex(fn);
+  if (index === -1) return arr;
+
+  const result = [...arr];
+  result.splice(index, 1);
+
+  return count === 1 ? result : remove(fn, result, count - 1);
+}
