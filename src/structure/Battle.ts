@@ -58,9 +58,6 @@ export class Battle {
 
   private handleBattle(p1Action: BaseStatsKey, p2Action: BaseStatsKey) {
 
-    const p1Lower = p1Action.toLowerCase();
-    const p2Lower = p2Action.toLowerCase();
-
     const bothAttackMessage = (p1Damage: number, p2Damage: number) => {
       const p1DamageDealt = p1Damage > this.panda2.hp ? this.panda2.hp : p1Damage;
       const p2DamageDealt = p2Damage > this.panda1.hp ? this.panda1.hp : p2Damage;
@@ -81,6 +78,24 @@ export class Battle {
         ${bold(p1.name)}’s attack. ${bold(p1.name)} loses ${p2DamageDealt} hp…
         Ouch!`
       );
+    }
+
+    const magicAttackAndDefense = (p1: Panda, p2: Panda) => {
+      const damageDealt = p1.magicAttack > p2.hp ? p2.hp : p1.magicAttack;
+
+      this.msg.channel.send(
+        oneLine`${bold(p1.name)} used magic attack! ${bold(p2.name)} used normal
+        defense and failed! ${bold(p2.name)} loses ${damageDealt} hp.`
+      )
+    }
+
+    const attackAndMagicDefense = (p1: Panda, p2: Panda) => {
+      const damageDealt = p1.attack > p2.hp ? p2.hp : p1.attack;
+
+      this.msg.channel.send(
+        oneLine`${bold(p1.name)} used normal attack! ${bold(p2.name)} used magic
+        defense and failed! ${bold(p2.name)} loses ${damageDealt} hp.`
+      )
     }
 
     if (p1Action === "attack" && p2Action === "attack") {
@@ -107,22 +122,42 @@ export class Battle {
 
       bothAttackMessage(this.panda1.magicAttack, this.panda2.attack);
 
-    } else if (p1Lower.includes("attack") && p2Action === "defense") {
+    } else if (p1Action === "attack" && p2Action === "defense") {
       this.panda1.hp -= this.panda2.defense;
 
       attackAndDefense(this.panda1, this.panda2, this.panda2.defense);
 
-    } else if (p2Lower.includes("attack") && p1Action === "defense") {
+    } else if (p2Action === "attack" && p1Action === "defense") {
       this.panda2.hp -= this.panda1.defense;
 
       attackAndDefense(this.panda2, this.panda1, this.panda1.defense);
 
-    } else if (p1Lower.includes("attack") && p2Action === "magicDefense") {
+    } else if (p1Action === "magicAttack" && p2Action === "defense") {
+      this.panda2.hp -= this.panda1.magicAttack;
+
+      magicAttackAndDefense(this.panda1, this.panda2);
+
+    } else if (p2Action === "magicAttack" && p1Action === "defense") {
+      this.panda1.hp -= this.panda2.magicAttack;
+
+      magicAttackAndDefense(this.panda2, this.panda1);
+      
+    } else if (p1Action === "attack" && p2Action === "magicDefense") {
+      this.panda2.hp -= this.panda1.attack;
+
+      attackAndMagicDefense(this.panda1, this.panda2);
+
+    } else if (p2Action === "attack" && p1Action === "magicDefense") {
+      this.panda1.hp -= this.panda2.attack;
+
+      attackAndMagicDefense(this.panda2, this.panda1);
+
+    } else if (p1Action === "magicAttack" && p2Action === "magicDefense") {
       this.panda1.hp -= this.panda2.magicDefense;
 
       attackAndDefense(this.panda1, this.panda2, this.panda2.magicDefense);
 
-    } else if (p2Lower.includes("attack") && p1Action === "magicDefense") {
+    } else if (p2Action === "magicAttack" && p1Action === "magicDefense") {
       this.panda2.hp -= this.panda1.magicDefense;
 
       attackAndDefense(this.panda2, this.panda1, this.panda1.magicDefense);
