@@ -9,7 +9,7 @@
     "watch": "tsc -w"
   },
   "dependencies": {
-    "@jiman24/commandment": "^1.3.8",
+    "@jiman24/commandment": "^0.3.10",
     "@jiman24/discord.js-button": "^0.0.8",
     "common-tags": "^1.8.0",
     "discord.js": "^13.3.1",
