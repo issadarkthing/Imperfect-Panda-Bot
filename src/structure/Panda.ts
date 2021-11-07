@@ -67,7 +67,7 @@ export class Panda implements BaseStats {
     this.attributes.push(attribute);
   }
 
-  show() {
+  show(small?: boolean) {
 
     const attributes = toList(this.attributes
       .map(x => `${x.name}: +${x.value} ${x.stat}`));
@@ -93,8 +93,13 @@ export class Panda implements BaseStats {
     const embed = new MessageEmbed()
       .setColor("RANDOM")
       .setTitle(this.name)
-      .setImage(this.avatarUrl)
       .setDescription(description)
+
+    if (small) {
+      embed.setThumbnail(this.avatarUrl);
+    } else {
+      embed.setImage(this.avatarUrl);
+    }
 
     return embed;
   }

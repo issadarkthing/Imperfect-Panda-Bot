@@ -11,7 +11,7 @@ export default class extends Command {
   async exec(msg: Message) {
 
     const player = new Player(msg.author);
-    const pandas = player.pandas.map(x => x.show());
+    const pandas = player.pandas.map(x => x.show(true));
 
     if (pandas.length <= 0) {
       throw new Error("you have no panda");
