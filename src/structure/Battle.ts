@@ -144,7 +144,10 @@ export class Battle {
 
   async run() {
 
-    this.msg.channel.send("Battle start!");
+    this.msg.channel.send({ 
+      content: "Battle start!",
+      embeds: [this.panda1.show(true), this.panda2.show(true)],
+    })
 
     while (true) {
       await this.startRound();
