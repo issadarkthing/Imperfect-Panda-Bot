@@ -68,6 +68,14 @@ export class Battle {
       this.panda1.hp -= this.panda2.magicAttack;
       this.panda2.hp -= this.panda1.magicAttack;
 
+    } else if (p1Action === "attack" && p2Action === "magicAttack") {
+      this.panda1.hp -= this.panda2.magicAttack;
+      this.panda2.hp -= this.panda1.attack;
+
+    } else if (p1Action === "magicAttack" && p2Action === "attack") {
+      this.panda1.hp -= this.panda2.attack;
+      this.panda2.hp -= this.panda1.magicAttack;
+
     } else if (p1Lower.includes("attack") && p2Action === "defense") {
       this.panda1.hp -= this.panda2.defense;
 
