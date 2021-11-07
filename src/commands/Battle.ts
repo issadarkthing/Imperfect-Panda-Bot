@@ -41,8 +41,8 @@ export default class extends Command {
       mentionedUser.id,
     );
 
-    battleRequest.addButton("accept", () => { battleRequestResult = true });
-    battleRequest.addCloseButton();
+    battleRequest.addButton("Accept", () => { battleRequestResult = true });
+    battleRequest.addButton("Cancel", () => { battleRequestResult = false });
 
     await battleRequest.run();
 

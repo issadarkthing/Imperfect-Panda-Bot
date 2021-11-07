@@ -45,10 +45,10 @@
     discord.js "^13.1.0"
     table-layout "^3.0.0"
 
-"@jiman24/discord.js-button@^0.0.8":
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/@jiman24/discord.js-button/-/discord.js-button-0.0.8.tgz#8256fae3e0951d2dc7896b94018f21aacdbfad16"
-  integrity sha512-+deVN5mAtuceZ5sxg8TbP8SZoIAIZkRWsUyAyJoq4h9T07EIDuzxsus4vIYHqChl+pfbPS/0dvnFvr3YzPgZ6w==
+"@jiman24/discord.js-button@^0.0.9":
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/@jiman24/discord.js-button/-/discord.js-button-0.0.9.tgz#4828aef58d87b8369b06bbe8c7f50fa9f992a594"
+  integrity sha512-rTdwgLioEmmA5vBedBC0ZJx+6LwvxCjPwsHiJRhojUiHmewjButkIVISwL8gYubQraWLEAA5GOGByG6/2X4leg==
   dependencies:
     discord.js "^13.3.0"
 

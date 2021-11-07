@@ -126,10 +126,10 @@ export class Battle {
       }
     }
 
-    menu.addButton("attack", btnCallback("attack"));
-    menu.addButton("magic attack", btnCallback("magicAttack"));
-    menu.addButton("defense", btnCallback("defense"));
-    menu.addButton("magic defense", btnCallback("magicDefense"));
+    menu.addButton("Attack", btnCallback("attack"));
+    menu.addButton("Magical Attack", btnCallback("magicAttack"));
+    menu.addButton("Defense", btnCallback("defense"));
+    menu.addButton("Magical Defense", btnCallback("magicDefense"));
 
     await menu.run();
 
