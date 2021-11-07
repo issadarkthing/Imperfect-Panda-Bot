@@ -1,14 +1,14 @@
-import { Command } from "@jiman24/commandment";
 import { oneLine } from "common-tags";
 import { Message } from "discord.js";
 import { client } from "..";
+import { AdminCommand } from "../structure/AdminCommand";
 import { BaseStatsKey, Panda } from "../structure/Panda";
 import { Player } from "../structure/Player";
 import { Prompt } from "../structure/Prompt";
 import { bold, validateNumber } from "../utils";
 
 
-export default class extends Command {
+export default class extends AdminCommand {
   name = "create";
   aliases = ["c"];
   private stats  = new Map<string, BaseStatsKey>()

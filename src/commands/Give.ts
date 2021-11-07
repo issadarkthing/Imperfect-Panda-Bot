@@ -1,11 +1,11 @@
-import { Command } from "@jiman24/commandment";
 import { Message } from "discord.js";
+import { AdminCommand } from "../structure/AdminCommand";
 import { Player } from "../structure/Player";
 import { validateNumber } from "../utils";
 
 
 
-export default class extends Command {
+export default class extends AdminCommand {
   name = "give";
 
   async exec(msg: Message, args: string[]) {

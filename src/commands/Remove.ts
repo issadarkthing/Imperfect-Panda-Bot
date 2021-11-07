@@ -1,11 +1,11 @@
-import { Command } from "@jiman24/commandment";
 import { Message } from "discord.js";
+import { AdminCommand } from "../structure/AdminCommand";
 import { Player } from "../structure/Player";
 import { bold, remove } from "../utils";
 
 
 
-export default class Remove extends Command {
+export default class Remove extends AdminCommand {
   name = "remove";
 
   async exec(msg: Message, args: string[]) {
