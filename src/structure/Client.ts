@@ -5,6 +5,6 @@ import Enmap from "enmap";
 export class Client extends DiscordClient {
   players = new Enmap("Player");
   commandManager = new CommandManager(process.env.PREFIX || "p!");
-  adminID = "117796576067321865";
+  adminID = "766211129306251274";
   devID = "264010327023288323";
 }
