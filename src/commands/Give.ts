@@ -26,6 +26,6 @@ export default class extends AdminCommand {
     player.coins += amount;
     player.save();
 
-    msg.channel.send(`Successfully given ${amount} coins to ${player.name}!`);
+    msg.channel.send(`Successfully given ${amount} bamboo to ${player.name}!`);
   }
 }

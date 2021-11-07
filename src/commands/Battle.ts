@@ -37,7 +37,7 @@ export default class extends Command {
     const battleRequest = new ButtonHandler(
       msg,
       oneLine`${mentionedUser}, ${msg.author.username} is requesting to battle
-      you and placed a bet of ${amount} coins. Do you accept?`,
+      you and placed a bet of ${amount} bamboo. Do you accept?`,
       mentionedUser.id,
     );
 
@@ -67,6 +67,6 @@ export default class extends Command {
     winner.save();
 
     msg.channel.send(`${bold(winner.name)} wins!`);
-    msg.channel.send(`${bold(winner.name)} earns ${amount} coins!`);
+    msg.channel.send(`${bold(winner.name)} earns ${amount} bamboo!`);
   }
 }
