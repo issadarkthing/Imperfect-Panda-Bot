@@ -155,18 +155,28 @@ export class Battle {
       );
 
     const menu = new ButtonHandler(this.msg, embed)
-      .setFilter(user => user.id === this.player1.id || user.id === this.player2.id)
-      .setMultiUser(2);
+      .setMultiUser(Number.MAX_SAFE_INTEGER);
 
     let p1Action: BaseStatsKey | undefined;
     let p2Action: BaseStatsKey | undefined;
 
+    let count = 0;
+
     const btnCallback = (action: BaseStatsKey) => {
       return (user: User) => {
+
+        if (user.id !== this.player1.id && user.id !== this.player2.id) return;
+        if (p1Action && user.id === this.player1.id) return;
+        if (p2Action && user.id === this.player2.id) return;
+
+        count++;
+
         if (user.id === this.player1.id)
           p1Action = action;
         else
           p2Action = action;
+
+        if (count >= 2) menu.close();
       }
     }
 
