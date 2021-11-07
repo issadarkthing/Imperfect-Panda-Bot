@@ -1,7 +1,6 @@
 import { Command } from "@jiman24/commandment";
-import { Message, MessageEmbed } from "discord.js";
+import { Message } from "discord.js";
 import { Player } from "../structure/Player";
-import { toList } from "../utils";
 
 
 
@@ -12,14 +11,13 @@ export default class extends Command {
   async exec(msg: Message) {
 
     const player = new Player(msg.author);
-    const pandas = toList(player.pandas.map(x => x.name)) || "none";
+    const pandas = player.pandas.map(x => x.show());
 
-    const embed = new MessageEmbed()
-      .setColor("RANDOM")
-      .setTitle("Party")
-      .addField("Coins", player.coins.toString())
-      .setDescription(pandas);
+    if (pandas.length <= 0) {
+      throw new Error("you have no panda");
+    }
 
-    msg.channel.send({ embeds: [embed] });
+    msg.channel.send({ embeds: pandas });
+
   }
 }
